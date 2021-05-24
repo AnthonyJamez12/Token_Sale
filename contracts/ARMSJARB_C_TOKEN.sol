@@ -1,14 +1,36 @@
 pragma solidity ^0.4.22;
 
 contract ARMSJARB_C_TOKEN{
-    //Constructor
-    //Set Tokens
-    //Read total number of Tokens
+
+    string public name = "Armsjarb Token";
+    string public symbol = "AMJ";
+    string public standard = "Armsjarb Token v1.0";
     uint256 public totalSupply;
 
-    function ARMSJARB_C_TOKEN() public{
-        totalSupply = 1000000;
+    event Transfer(
+        address indexed _from,
+        address indexed _to,
+        uint256 _value
+        );
 
+
+
+    mapping(address => uint256) public balanceOf;
+
+    function ARMSJARB_C_TOKEN(uint256 _initialSupply) public{
+        balanceOf[msg.sender] = _initialSupply;
+        totalSupply = _initialSupply;
+    }
+
+
+    function transfer(address _to, uint256 _value) public returns(bool success){
+        require(balanceOf[msg.sender] >= _value);
+        balanceOf[msg.sender] -= _value;
+        balanceOf[_to] += _value;
+
+        Transfer(msg.sender, _to, _value);
+
+        return true;
     }
 }
 
