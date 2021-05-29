@@ -1,0 +1,16 @@
+{
+    "name": "armsjarb-token-sale",
+    "version": "1.0.0",
+    "description": "ARMSJARB Token Sale ICO",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "dev": "lite-server"
+    },
+    "author": "Anthony Humphreys",
+    "license": "ISC",
+    "devDependencies": {
+        "lite-server": "^2.3.0"
+    }
+}
